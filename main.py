@@ -2,13 +2,12 @@ import tkinter as tk
 import csv
 import random
 import time
-from PIL import Image, ImageTk, ImageDraw, ImageFont
+from PIL import Image, ImageTk
 
 ############  SENTENCE GETTER  ############
 def sentencer():
     with open("sentences.csv", "r") as sentence_csv_file:
         csv_reader = csv.reader(sentence_csv_file)
-        # This skips over the first line in the .csv (first_name, last_name)
         next(csv_reader)
         return random.choice([line[0] for line in csv_reader])
 
@@ -18,16 +17,6 @@ def onKeyPress(event):
     if (event.char.isalnum() or event.char.isspace() or event.char =='-' or event.char ==','or event.char =="'") and active==True:
         key_checker(event.char,sent)
 
-############  CHECK PRESS  ############
-# class Counter():
-#     def __int__(self):
-#         self.counter=0
-#     def inc(self):
-#         self.counter+=1
-#     def reset(self):
-#         self.counter=0
-#     def getval(self):
-#         return self.counter
 
 ############  RESET  ############
 def reset():
@@ -89,7 +78,6 @@ def key_checker(char,sentence):
         text.tag_configure("cur",background='orange')
         text.configure(state='disabled')
         text.grid(row=1, column=0, columnspan=1)
-        # text.pack()
     else:
         text.configure(state='normal')
         text.tag_remove('cur',f"1.{cnt}")
@@ -99,7 +87,6 @@ def key_checker(char,sentence):
         text.tag_configure("cur",background='orange')
         text.configure(state='disabled')
         text.grid(row=1, column=0, columnspan=1)
-        # text.pack()
         incorrect+=1
 
     cnt+=1
