@@ -22,7 +22,6 @@ def onKeyPress(event):
 def reset():
     global cnt, active, start, end, charpersec, wordpermin, incorrect, sent
     sent = sentencer().lower()
-    my_font1 = ('times', 30, 'bold')
 
     label1.config(text=('TYPE SENTENCE BELOW:\n\n' + ''))
     text.configure(state='normal')
@@ -48,7 +47,6 @@ def key_checker(char,sentence):
             text.tag_configure("o", foreground='green')
             text.configure(state='disabled')
             text.grid(row=1, column=0, columnspan=1)
-            # text.pack()
         else:
             text.configure(state='normal')
             text.tag_remove('cur', f"1.{cnt}")
@@ -56,7 +54,6 @@ def key_checker(char,sentence):
             text.tag_configure("x", foreground='red')
             text.configure(state='disabled')
             text.grid(row=1, column=0, columnspan=1)
-            # text.pack()
         active=False
         end = time.time()
         timed = end - start
