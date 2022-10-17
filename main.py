@@ -98,6 +98,8 @@ def key_checker(char,sentence):
 
 sent = sentencer().lower()
 window = tk.Tk()
+window.iconbitmap('favicon.ico')
+window.title('          Typing Speed Test')
 sw = round(window.winfo_screenwidth() / 2)
 sh = round(window.winfo_screenheight() / 3)
 window.geometry(f'{sw}x{sh}')
